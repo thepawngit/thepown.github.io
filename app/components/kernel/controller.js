@@ -12,7 +12,7 @@
         that.title = "hola mundo"
         that.kernel_records = []
         that.loaded = false
-        that.initial_date = moment().format("YYYY-MM-DD")
+        that.initial_date = '2018-12-01'
         that.getUtilizacionCPU = getUtilizacionCPU
         that.get_object_table_order = get_object_table_order
         that.order_field_visible = false
