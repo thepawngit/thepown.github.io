@@ -6,7 +6,7 @@
             'angularSoap',
         ])
         .config(["$httpProvider", function($httpProvider) {
-            var version = '0.0.2'
+            var version = '0.0.4'
             $httpProvider.interceptors.push(function($templateCache) {
               return {
                 'request' : function(request) {
