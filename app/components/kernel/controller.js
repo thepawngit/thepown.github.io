@@ -5,9 +5,9 @@
         .module('app')
         .controller('kernelController', kernelController);
 
-    kernelController.$inject = ["$scope","homeService","kernelService","$state","modals"];
+    kernelController.$inject = ["$scope","homeService","kernelService","$state"];
 
-    function kernelController($scope, homeService, kernelService,$state,modals) {
+    function kernelController($scope, homeService, kernelService,$state) {
         var that = this
         that.title = "hola mundo"
         that.kernel_records = []

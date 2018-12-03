@@ -4,7 +4,6 @@
     angular.module('app', [
             'app.routes',
             'angularSoap',
-            'ui.bootstrap'
         ])
         .filter('sumFilter', function() {
             return function(visits, field) {
