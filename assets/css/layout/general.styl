@@ -1,0 +1,741 @@
+body,html
+	height 100%
+.home-uiview,.home-uiview .home
+	height 100%
+.home-uiview .home .home-content-uiview
+	height 90%
+.easy-btn
+	max-width 250px
+	a
+		display flex
+		flex-direction row
+		background #aaa
+		text-decoration none
+		cursor pointer
+		padding 0px
+		color #fff
+		font-size 16px
+		border-radius-f(6px)
+		text-align center
+		justify-content center
+		i
+			display block
+			color #fff
+			margin-right 10px
+	a:focus
+		text-decoration none
+		color #fff
+	a:hover,a:active
+		background #ccc
+		border-radius-f 5px
+		color #fff
+		text-decoration none
+		i
+			color #fff
+			margin-right 10px
+	ul
+		a:hover,a:active
+			background #fff
+.easy-btn.btn-mini
+	a
+		padding 5px
+		font-size 14px
+		text-decoration none
+		border-radius-f(3px)
+.easy-btn.btn-extra-mini
+	max-width 50px
+	a
+		padding 5px
+		font-size 14px
+		text-decoration none
+		border-radius-f(3px)
+		i
+			margin-right 0px
+.easy-btn.btn-icon
+	max-width 25px
+	a
+		background transparent
+		i
+			font-size 20px
+			color #888
+			margin-right 0px
+		i:hover
+			color #ccc
+.easy-btn.btn-icon.dropdown
+	button
+		padding 0px
+		margin-top 4px
+		background transparent
+		border none
+		i
+			display block
+			font-size 20px
+			color #888
+			margin-right 0px
+		i:hover
+			color #ccc
+
+.easynet_check.active
+		border 2px solid easy_gestion_main_color
+.easynet_check
+	border-radius-f(3px)
+	width 16px
+	min-width 16px
+	height 16px
+	border 2px solid #c3c3c3
+	text-align center
+	padding 0px
+	cursor pointer
+	margin 0 auto
+	i
+		color easy_gestion_main_color
+		margin 0 auto
+		font-size 9px
+		font-weight 700
+		line-height 10px
+		display block
+select.easynet_select
+	border-radius-f(4px)
+	height: 35px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	width 100%
+	outline 0
+	option
+		color : #555
+select.easynet_select.placeholder
+	color : #acacac
+.error-message
+	margin 0px
+	color red
+	font-size 14px
+.loading_full
+	position fixed
+	width 100%
+	height 100%
+	z-index 1000
+	top 0px
+	left 0px
+	background rgba(255,255,255,0.7)
+	.loader
+		display block
+		background url("../../assets/images/loading.gif")
+		width 215px
+		height 144px
+		margin 0px auto
+		margin-top 300px
+		z-index 1000
+	p
+		color #777
+		text-align center
+		font-size 16px
+		font-weight 700
+.general_header
+	padding 8px
+	background #ee1c28
+	.container
+		display flex
+		flex-direction row
+		align-items center
+		.left
+			display flex
+			flex-direction row
+			align-items center
+			.btn-group
+				margin-right 20px
+				.dropdown-menu
+					.easy-gestion-logo
+						text-align center
+						padding 6px
+						background #0094de
+					.dropdown-submenu
+						a
+							display flex
+							flex-direction row
+							align-items center
+							span
+								margin-left auto
+
+						ul li a
+							padding 3px 30px
+							position relative
+							cursor pointer
+							i
+								position absolute
+								width 16px
+								height 16px
+								left 5px
+								line-height 22px
+				.btn-menu
+					border none
+					background transparent
+					outline 0
+					.icon-hamburger
+						background-image url("../../images/menu-hamburger.png")
+						display block
+						width 30px
+						height 31px
+					span
+						font-size 25px
+						color #fff
+					span:hover
+						color rgba(255,255,255,0.8)
+
+			.logo
+				background-image url("../../images/davivienda_logo_rural_go.png")
+				display block
+				width 33px
+				height 33px
+				margin-right 20px
+			.rural_go
+				margin 0px
+				color #fff
+				font-weight 700
+				font-size 25px
+		.middle
+			margin-right auto
+			margin-left auto
+			span
+				display block
+				color #fff
+				font-size 25px
+		.general_options
+			display flex
+			flex-direction row
+			align-items center
+			margin-left auto
+			.logout
+				font-size 25px
+				color #fff
+				i
+					line-height 35px
+			.logout:hover
+				color rgba(255,255,255,0.8)
+.general_header.easy_net
+	background #00a2e8
+.dropdown-menu
+	li > a.group
+		font-weight 700
+	.sub-menu
+		padding 0px
+	.sub-menu > li > a:hover
+		color: #262626;
+		text-decoration: none;
+		background-color: #f5f5f5;
+	.sub-menu > li > a
+		display: block;
+		padding: 3px 40px;
+		clear: both;
+		font-weight: 400;
+		line-height: 1.42857143;
+		color: #333;
+		white-space: nowrap;
+	.sub-menu > li
+		list-style-type: none;
+		display: list-item;
+		text-align: -webkit-match-parent;
+		a
+			background transparent
+			text-decoration none
+.dropdown-submenu
+	position: relative;
+.dropdown-submenu .dropdown-menu
+	top: 0;
+	left: 95%;
+	margin-top: -1px;
+.btn-group.open .dropdown-toggle
+	-webkit-box-shadow: none !important;
+	 box-shadow: none !important;
+.loading
+	position absolute
+	display block
+	width 200px
+	height 200px
+	margin 100px auto
+	z-index 100
+	left 0px
+	right 0px
+.container
+	width 95% !important
+	max-width 1540px !important
+
+.span_icons_white
+	background-color #fff !important
+
+.inputs_disabled
+	background-color #fff !important
+
+.table>tbody>tr
+	cursor pointer
+
+.table>tbody>tr.info>td, .table>tbody>tr.info>th, .table>tbody>tr>td.info, .table>tbody>tr>th.info, .table>tfoot>tr.info>td, .table>tfoot>tr.info>th, .table>tfoot>tr>td.info, .table>tfoot>tr>th.info, .table>thead>tr.info>td, .table>thead>tr.info>th, .table>thead>tr>td.info, .table>thead>tr>th.info
+	background-color #C8C8C8 !important
+	color #000
+
+#table_users
+	input[type=checkbox]
+		-ms-transform: scale(2); /* IE */
+		-moz-transform: scale(1.6); /* FF */
+		-webkit-transform: scale(1.6); /* Safari and Chrome */
+		-o-transform: scale(2); /* Opera */
+		background blue !important
+		cursor pointer
+
+.modal_content
+	border-top-right-radius 10px !important
+	border-top-left-radius 10px !important
+.modal_header
+	border-top-right-radius 10px !important
+	border-top-left-radius 10px !important
+	background-color #00a2e8 !important
+	padding 10px 0px 0px 0px !important
+.labels_campos
+	min-width 80px
+.selection_option
+	min-width 321px
+.button_aceptar
+	background-color #00a2e8 !important
+	color #fff
+	&:hover
+		color #fff
+.back_th
+	background-color #00a2e8 !important
+	color #fff
+.close
+	padding 5px 25px 0px 0px !important
+.labelheader
+	color #fff
+	font-size 20px
+	font-weight bold
+.flex_modal_divs
+	display flex
+	flex-direction row
+	.icon-search
+		font-size 15px
+	.labels
+		padding-top 5px
+	.div
+		margin-top 5px !important
+
+#table_datos
+	border-top-left-radius 7px !important
+	border-top-right-radius 7px !important
+
+.button_filter
+	cursor pointer !important
+
+
+
+
+.totals.general
+	display flex
+	flex-direction row
+	align-items center
+	.total
+		font-weight 500
+		font-size 16px
+		padding 4px 10px
+		border-radius-f(4px)
+		border 1px solid #c3c3c3
+		background-color #fff
+		p
+			margin 0px
+	.paginator
+		display flex
+		flex-direction row
+		align-items center
+		margin-left auto
+		.total
+			margin-right 5px
+
+@media (min-width: 1400px)
+	.container
+		width: 1370px !important;
+@media (min-width: 1600px)
+	.container
+		width: 1570px !important;
+@media (min-height: 1600px)
+	.container
+		width: 1570px !important;
+
+table.easynet-table
+	background #fff
+	border-radius-f(6px)
+	thead
+		color #fff
+		background easynet_table_color
+		border-radius-f(6px 6px 0px 0px)
+		th
+			text-align center
+			white-space nowrap
+			span
+				display inline-block
+				margin-left 10px
+
+	tbody
+		text-align center
+		td
+			font-size 14px !important
+			padding 4px !important
+			white-space nowrap
+	tfoot
+		font-weight 700
+		text-align center
+
+.row_flex
+	display flex
+	flex-direction row
+	align-items center
+
+
+.col_flex
+	display flex
+	flex-direction column
+	align-items center
+	*
+		margin-bottom 10px
+	:last-child
+		margin-bottom 0px
+
+.eN_default_width
+	width 183px
+
+
+.easynet_default_width
+	width 210px
+	max-width 210px
+	min-width 210px
+
+.easynet_small_width
+	width 170px
+
+.easynet_pull_right
+	margin-left auto
+
+.easynet_pull_left
+	margin-right auto
+
+.filter_zone
+	padding 5px
+	margin-bottom 10px
+	border-radius-f(6px)
+	background #fff
+	flex-wrap wrap
+	.item
+		margin-top 2px
+		margin-bottom 2px
+		margin-right 22px
+		input
+			height 35px
+		.sub-item
+			margin-right 5px
+		.sub-item:last-child
+			margin-right 0px
+	.item.last
+		margin-right 0px
+.point_divider
+	height 100%
+	margin-right 10px
+	span
+		display block
+		width 8px
+		height 8px
+		border-radius-f(100%)
+		background red
+.filter_zone.advanced_top
+	border-radius-f(6px 6px 0px 0px)
+	margin-bottom 0px
+.filter_zone.advanced_bottom
+	border-radius-f(0px 0px 6px 6px)
+.pagination
+	margin 0px !important
+.totals_zone
+	margin-top 5px
+	padding 5px
+	padding-bottom 0px
+	border-radius-f(6px)
+	background #fff
+	flex-wrap wrap
+	justify-content space-between
+	.left , .right, .full
+		width 49%
+		padding 5px
+		border-radius-f(5px)
+		border 1px solid #c3c3c3
+		min-width 540px
+		margin-bottom 10px
+		.total_item
+			width 32%
+			padding-right 20px
+			span
+				float right
+		.total_item.last_in_row
+			padding-right 0px
+	.full
+		width 100%
+		min-height 70px
+		position relative
+		padding-top 30px
+		.title
+			position absolute
+			background easy_gestion_main_color
+			color #fff
+			font-size 12px
+			border-radius-f(5px 0px 5px 0px)
+			left 0px
+			top 0px
+			padding 2px 5px
+		.total_item
+			width 25%
+			span
+				float inherit
+				margin-left 20px
+	.left
+		flex-wrap wrap
+		padding-top 30px
+		position relative
+		min-height 130px
+
+		.title
+			position absolute
+			background easy_gestion_main_color
+			color #fff
+			font-size 12px
+			border-radius-f(5px 0px 5px 0px)
+			left 0px
+			top 0px
+			padding 2px 5px
+	.right
+		padding 0px
+		border none
+		.top
+			margin 0px
+			margin-bottom 5px
+
+		.top,.bottom
+			position relative
+			padding 5px
+			padding-top 30px
+			border-radius-f(5px)
+			border 1px solid #c3c3c3
+			.title
+				position absolute
+				background easy_gestion_main_color
+				color #fff
+				font-size 12px
+				border-radius-f(5px 0px 5px 0px)
+				left 0px
+				top 0px
+				padding 2px 5px
+			.total_item
+				width 25%
+			.total_item.first
+				padding-right 40px
+				width 50%
+.empty
+	display block
+	padding 20px
+	text-align center
+	border-radius-f(6px)
+	border 1px solid #c3c3c3
+	background #ddd
+	margin-top 15px
+	p
+		margin 0px
+		font-size 20px
+		flex-wrap normal
+		color #888
+.users_list
+	ul
+		max-height 400px
+		overflow-y scroll
+table#cash-flow-table {
+  position: relative;
+  width: 1500px;
+  overflow: hidden;
+  margin: 0 auto
+}
+
+
+/*thead#th-cash-flow-table*/
+thead#th-cash-flow-table {
+  position: relative;
+  display: block; /*seperates the header from the body allowing it to be positioned*/
+  width: 1500px;
+  overflow: visible;
+}
+
+thead#th-cash-flow-table th {
+  min-width: 120px;
+  height: 40px;
+  border-bottom:none;
+  vertical-align:inherit;
+}
+
+thead#th-cash-flow-table th:nth-child(1) {/*first cell in the header*/
+  position: relative;
+  min-width:300px
+  max-height 300px
+  display: block; /*seperates the first cell in the header from the header*/
+  line-height:24px;
+}
+
+thead#th-cash-flow-table th:last-child {/*first cell in the header*/
+  position: absolute;
+  min-width:135px
+  display: block; /*seperates the first cell in the header from the header*/
+  line-height:24px;
+}
+thead#th-cash-flow-table th.diseno_total:last-child{
+  background:#ee1c28;
+}
+
+/*tbody#tb-cash-flow-table*/
+tbody#tb-cash-flow-table {
+  position: relative;
+  display: block; /*seperates the tbody#tb-cash-flow-table from the header*/
+  width: 1500px;
+  height: 700px;
+  overflow: scroll;
+}
+
+tbody#tb-cash-flow-table td {
+  padding:0px;
+  min-width: 120px;
+  height: 40px;
+  line-height:40px;
+}
+
+tbody#tb-cash-flow-table tr td:nth-child(1) {  /*the first cell in each tr*/
+  position: relative;
+  min-width:300px
+  max-height 300px
+  display: block; /*seperates the first column from the tbody#tb-cash-flow-table*/
+  height: 40px;
+  line-height:40px;
+  white-space: nowrap;
+}
+
+tbody#tb-cash-flow-table tr td:last-child {  /*the first cell in each tr*/
+  position: absolute;
+  min-width:120px
+  display: block; /*seperates the first column from the tbody#tb-cash-flow-table*/
+  height: 40px;
+  line-height:40px;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.zoom{
+/* Aumentamos la anchura y altura durante 2 segundos */
+transition: width 0.4s, height 0.4s, transform 0.4s;
+-moz-transition: width 0.4s, height 0.4s, -moz-transform 0.4s;
+-webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+-o-transition: width 0.4s, height 0.4s,-o-transform 0.4s;
+}
+
+.scale{
+/* tranformamos el elemento al pasar el mouse por encima al doble de
+   su tamaño con scale(2). */
+transform : scale(1.5);
+-moz-transform : scale(1.5);      /* Firefox */
+-webkit-transform : scale(1.5);   /* Chrome - Safari */
+-o-transform : scale(1.5);        /* Opera */
+}
+
+.general-popup
+	margin 0 auto
+	background #fff
+	border-radius-f(6px)
+	width 400px
+	.popup-header
+		padding 10px
+		border-radius-f(6px 6px 0px 0px)
+		background easy_gestion_main_color
+		p.title
+			color #fff
+			text-align center
+			font-weight 700
+			font-size 18px
+			margin 0px
+	.popup-body
+		padding 20px
+		.group
+			margin-bottom 10px
+		.group:last-child
+			margin-bottom 0px
+	.popup-footer
+		border-top solid 1px #c3c3c3
+		padding 10px
+		display flex
+		flex-direction row
+		align-items center
+		justify-content center
+		.e-btn
+			margin 0 10px
+
+.open>.dropdown-menu
+    padding-bottom: 0px !important
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.ui-datepicker
+	z-index 2000 !important

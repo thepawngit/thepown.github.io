@@ -1,0 +1,52 @@
+transition-all-f()
+    -webkit-transition all 0.5s ease;
+    -moz-transition all 0.5s ease;
+    -o-transition all 0.5s ease;
+    transition all 0.5s ease;
+
+transition-all-time-method-f(time,method)
+    -webkit-transition all unit(time,'s') method;
+    -moz-transition all unit(time,'s') method;
+    -o-transition all unit(time,'s') method;
+    transition all unit(time,'s') method;
+
+opacity-f(n)
+    -ms-filter: unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')')
+    filter: unquote('alpha(opacity=' + round(n * 100) + ')');
+    opacity: n
+
+border-radius-f(n)
+    -webkit-border-radius n
+    -moz-border-radius n
+    -ms-border-radius n
+    -o-border-radius n
+    border-radius n
+
+shadow-fab()
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 20px 0 rgba(0,0,0,.24);
+
+ellipsis()
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+
+background-landing-sprite($x,$y,$w,$h)
+    width unit($w,'px')
+    height unit($h,'px')
+    background url('/static/core/assets/landing/img/sprites_sheet.png')
+    background-position unit($x,'px')  unit($y,'px') 
+    
+
+background-gradient(color)
+    background -webkit-linear-gradient(left, color 0%, transparent 60%), 
+                -webkit-linear-gradient(right, color 0%, transparent 60%);
+
+text-rotate(deg)
+    -webkit-transform: rotate(deg) !important
+    /* Firefox */
+    -moz-transform: rotate(deg) !important
+    /* IE */
+    -ms-transform: rotate(deg) !important
+    /* Opera */
+    -o-transform: rotate(deg) !important

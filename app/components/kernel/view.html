@@ -1,0 +1,141 @@
+<div class="loading_full" ng-if="!kernelCtrl.loaded">
+    <div class="loader"></div>
+    <p>Cargando ...</p>
+</div> 
+<section class="container kernel">
+	<div class="filter_zone row_flex" ng-class="{'advanced_top':kernelCtrl.show_advanced_filter}" ng-if="!kernelCtrl.visible_filters">
+        <div class="item search">
+            <div class="input-group eN_default_width">
+                <input type="text" placeholder="Busqueda" class="form-control" ng-model="kernelCtrl.search.$">
+                <span class="input-group-addon span_icons_white"><i class="glyphicon glyphicon-search"></i></span>
+            </div>
+        </div>
+        <div class="item range-dates row_flex">
+            <div class="sub-item input-group eN_default_width">
+                <input type="text" placeholder="Fecha inicial" class="form-control" ng-model="kernelCtrl.initial_date" ng-change="kernelCtrl.getUtilizacionCPU()" ui-datepicker>
+                <span class="input-group-addon span_icons_white"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+        </div>
+        <div ui-tooltip title="Borrar filtros" class="item easy-btn btn-icon">
+            <a ng-click="search=undefined;kernelCtrl.user_search=''; kernelCtrl.check_false_users(); kernelCtrl.removeFilters()"><i class="glyphicon glyphicon-trash"></i></a>
+        </div>
+        
+   
+        <div ui-tooltip title="Configuración" data-trigger="hover" class="item last easy-btn dropdown btn-icon">
+            <button type="button"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-cog"></i>
+            </button>
+            <ul class="dropdown-menu pull-right option-list">
+                <li ng-click="kernelCtrl.enviarTablaExcel()"><a>Exportar a excel</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content_zone panel panel-default">
+        <div class="table-responsive">
+            <table id="records" class="table easynet-table table-bordered table-hover">
+                <thead>
+                    <tr>
+						<th>id
+                            <span ui-tooltip ex-title="Ordenar DES" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-up button_filter" ng-show="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('id', 1)"></span>
+                            <span ui-tooltip ex-title="Ordenar ASC" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-down button_filter" ng-hide="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('id', 2)"></span>
+                        </th>
+						<th>sql_server_cpu
+                            <span ui-tooltip ex-title="Ordenar DES" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-up button_filter" ng-show="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('sql_server_cpu', 1)"></span>
+                            <span ui-tooltip ex-title="Ordenar ASC" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-down button_filter" ng-hide="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('sql_server_cpu', 2)"></span>
+                        </th>
+						<th>system_idle_process
+                            <span ui-tooltip ex-title="Ordenar DES" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-up button_filter" ng-show="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('system_idle_process', 1)"></span>
+                            <span ui-tooltip ex-title="Ordenar ASC" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-down button_filter" ng-hide="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('system_idle_process', 2)"></span>
+                        </th>
+						<th>other_process_cpu
+                            <span ui-tooltip ex-title="Ordenar DES" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-up button_filter" ng-show="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('other_process_cpu', 1)"></span>
+                            <span ui-tooltip ex-title="Ordenar ASC" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-down button_filter" ng-hide="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('other_process_cpu', 2)"></span>
+                        </th>
+						<th>event_time 
+                            <span ui-tooltip ex-title="Ordenar DES" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-up button_filter" ng-show="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('event_time', 1)"></span>
+                            <span ui-tooltip ex-title="Ordenar ASC" data-placement="bottom" data-trigger="hover" class="glyphicon glyphicon-chevron-down button_filter" ng-hide="kernelCtrl.order_field_visible" ng-click="kernelCtrl.get_object_table_order('event_time', 2)"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="tb-easynet-table">
+                	<tr ng-click="kernelCtrl.goToDetail(record)" ng-class="record.sql_server_cpu + record.other_process_cpu >= 90 ? 'danger': record.sql_server_cpu + record.other_process_cpu >= 80?'warning':'normal'" ng-repeat="record in (kernelCtrl.kernel_records | filter:kernelCtrl.search | orderBy: kernelCtrl.order_field).slice(((kernelCtrl.currentPage-1)*kernelCtrl.itemsPerPage), ((kernelCtrl.currentPage)*kernelCtrl.itemsPerPage)) as recordsfiltered">
+						<td>{{record.id}}</td>
+						<td>{{record.sql_server_cpu}}</td>
+						<td>{{record.system_idle_process}}</td>
+						<td>{{record.other_process_cpu}}</td>
+						<td>{{record.event_time | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+                	</tr>
+                    <tr ng-if="kernelCtrl.kernel_records.length <= 0">
+                        <td colspan="5">No hay registros</td>
+                    </tr>
+                </tbody>
+                <pre class="hide">{{kernelCtrl.filter_len = (kernelCtrl.kernel_records | filter:kernelCtrl.search ).length}}</pre>
+            </table>
+        </div>
+    </div>
+    <div class="totals general">
+        <div class="paginator">
+            <div class="total" ui-tooltip title="Total de productos por página" data-placement="left">
+                <p>{{recordsfiltered.length}}</p>
+            </div>
+            <ul uib-pagination 
+                ng-model="kernelCtrl.currentPage" 
+                ng-change="kernelCtrl.pageChanged()" 
+                total-items="kernelCtrl.total_items" 
+                items-per-page="kernelCtrl.itemsPerPage" 
+                max-size="kernelCtrl.maxSize" 
+                next-text=">" 
+                previous-text="<" 
+                last-text=">>" 
+                first-text="<<" 
+                boundary-links="true">
+            </ul>
+        </div>
+    </div>
+</section>
+<div id="basemap-options" class="general-popup zoom-anim-dialog mfp-hide" ng-class="{'davivienda':homeCtrl.main_user == 'DAVIVIENDA'}">
+    <div class="popup-header">
+        Opciones mapa base
+    </div>
+    <div class="popup-body">
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="streets">streets
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="satellite">satellite
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="hybrid">hybrid
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="topo">topo
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="gray">gray
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="national-geographic">national-geographic
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="terrain">terrain
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="osm">osm
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="streets-vector">streets-vector
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="topo-vector">topo-vector
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="streets-relief-vector">streets-relief-vector
+        </div>
+        <div class="radio-group">
+            <input type="radio" ng-model="clientMapCtrl.basemap" value="streets-navigation-vector">streets-navigation-vector
+        </div>
+    </div>
+    <div class="popup-footer clearfix">
+        <button ng-click="clientMapCtrl.changeBasemap()" class="btn btn-default">Aceptar</button>
+    </div>
+</div>
