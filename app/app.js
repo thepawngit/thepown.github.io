@@ -5,6 +5,20 @@
             'app.routes',
             'angularSoap',
         ])
+        .config(["$httpProvider", function($httpProvider) {
+            var version = '0.0.1'
+            $httpProvider.interceptors.push(function($templateCache) {
+              return {
+                'request' : function(request) {
+                  if($templateCache.get(request.url) === undefined) { // cache miss
+                      // Item is not in $templateCache so add our query string
+                      request.url = request.url + '?v=' + version;
+                  }
+                  return request;
+              }
+            }});
+        }])
+
         .filter('sumFilter', function() {
             return function(visits, field) {
 
